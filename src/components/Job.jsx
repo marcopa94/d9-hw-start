@@ -1,6 +1,7 @@
 import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { addToPref } from "../redux/actions";
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();
@@ -18,10 +19,7 @@ const Job = ({ data }) => {
             className="ms-2"
             style={{ float: "right" }}
             onClick={() => {
-              dispatch({
-                type: "ADD_TO_PREF",
-                payload: data,
-              });
+              dispatch(addToPref(data));
             }}
           >
             add pref

@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button } from "react-bootstrap";
+import { deleteFromPref } from "../redux/actions";
 
 const Preferite = () => {
-  const dispatch = useDispatch(); // Get the dispatch function
+  const dispatch = useDispatch();
 
   const preferiti = useSelector((state) => {
-    return state.pref.content;
+    return state.preferiti.content;
   });
 
   return (
@@ -20,10 +21,7 @@ const Preferite = () => {
               <Button
                 variant="danger"
                 onClick={() => {
-                  dispatch({
-                    type: "DELETE_FROM_PREFERITI",
-                    payload: index,
-                  });
+                  dispatch(deleteFromPref(index));
                 }}
               >
                 Remove
